@@ -1,0 +1,190 @@
+﻿{
+  "id": "http://schema.management.azure.com/schemas/2014-04-01/Microsoft.Web.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Web",
+  "description": "Microsoft Web Resource Types",
+  "definitions": {
+    "serverFarms": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/resourceBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                "Microsoft.Web/serverFarms"
+              ]
+            },
+            "apiVersion": {
+              "enum": [
+                "2014-04-01"
+              ]
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "workerSize": {
+                  "type": "string"
+                },
+                "numberOfWorkers": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "apiVersion",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "configurations": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/resourceBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                "Microsoft.Web/configurations"
+              ]
+            },
+            "apiVersion": {
+              "enum": [
+                "2014-04-01"
+              ]
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "connectionStrings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  },
+                  "uniqueItems": true
+                },
+                "phpVersion": {
+                  "type": "string"
+                },
+                "netFrameworkVersion": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "apiVersion",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/resourceBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                "Microsoft.Web/extensions"
+              ]
+            },
+            "apiVersion": {
+              "enum": [
+                "2014-04-01"
+              ]
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "packageUri": {
+                  "type": "string"
+                },
+                "dbType": {
+                  "type": "string"
+                },
+                "connectionString": {
+                  "type": "string"
+                },
+                "setParameters": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "apiVersion",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "sites": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/resourceBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                "Microsoft.Web/sites"
+              ]
+            },
+            "apiVersion": {
+              "enum": [
+                "2014-04-01"
+              ]
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "serverFarm": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "apiVersion",
+        "properties"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

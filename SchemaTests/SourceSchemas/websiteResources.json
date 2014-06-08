@@ -1,0 +1,74 @@
+{
+  "publisher" : "Microsoft.Web",
+  "description" : "Microsoft Web Resource Types",
+  "apiVersion" : "2014-04-01",
+  "definitions" :
+  [
+    { 
+        "type" : "serverFarms",
+        "properties" : {
+            "name" : {
+                "type":"string"
+            },
+            "sku": {
+                "type":"string"
+            },
+            "workerSize": {
+                "type":"string"
+            },
+            "numberOfWorkers": {
+                "oneOf" : [
+                    { "type":"integer" },
+                    { "type":"string" }
+                ] 
+            }
+        }
+    },
+    {
+        "type" : "configurations",
+        "properties": {
+            "connectionStrings" : {
+                "type": "array",
+                "items" : {
+                    "type":"object"
+                },
+                "uniqueItems" : true
+            }, 
+            "phpVersion" : {
+                "type":"string"       
+            },
+            "netFrameworkVersion" : {
+                "type":"string"       
+            }
+        }
+    },
+    {
+        "type" : "extensions",
+        "properties": {
+            "packageUri" : {
+                "type":"string"
+            },
+            "dbType": {
+                "type":"string"
+            },
+            "connectionString": {
+                "type":"string"
+            },
+            "setParameters": {
+                "type":"object"
+            }  
+        }
+    },
+    {
+        "type" : "sites",
+        "properties": {
+            "name" : {
+                "type":"string"
+            },
+            "serverFarm": {
+                "type":"string"
+            }             
+        }
+    }
+  ]
+}
